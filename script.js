@@ -33,13 +33,21 @@ let silmarillion = new Book('The Silmarillion', 'J. R. R. Tolkien', 365);
 
 // Go through each book in the library
 for (book of myLibrary) {
+  index = myLibrary.indexOf(book);
   title = book.title;
   author = book.author;
   pages = book.pages;
   read = book.read;
 
-  console.log(title, author, pages, read)
+  console.log(index, title, author, pages, read);
 
   // And add it to the table on the page
+  let bookrow = document.createElement('tr');
+  bookrow.className = `book-${index}`
+  bookrow.innerHTML = `<td>${title}</td>
+                       <td>${author}</td>
+                       <td>${pages}</td>
+                       <td>${read}</td>`
+  bookshelf.appendChild(bookrow);
 
 }
