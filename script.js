@@ -1,4 +1,4 @@
-const bookshelf = document.querySelector('.bookshelf')
+const books = document.querySelector('.books')
 
 const myLibrary = [];
 
@@ -37,7 +37,11 @@ for (book of myLibrary) {
   title = book.title;
   author = book.author;
   pages = book.pages;
-  read = book.read;
+  if (book.read === true) {
+    read = 'Already Read'
+  } else {
+    read = 'Not read yet'
+  }
 
   console.log(index, title, author, pages, read);
 
@@ -48,6 +52,6 @@ for (book of myLibrary) {
                        <td>${author}</td>
                        <td>${pages}</td>
                        <td>${read}</td>`
-  bookshelf.appendChild(bookrow);
+  books.appendChild(bookrow);
 
 }
