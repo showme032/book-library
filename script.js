@@ -1,13 +1,17 @@
-const books = document.querySelector('.books')
+const books = document.querySelector('.books');
+const openModal = document.querySelector('.add-book-button');
+const modal = document.querySelector('.book-modal');
+const addBook = document.querySelector('#add-book');
+const cancelBook = document.querySelector('#cancel-book');
 
 const myLibrary = [];
 
 // Book object constructor
-function Book(title, author, pages) {
+function Book(title, author, pages, read) {
   this.title = title;
   this.author = author;
   this.pages = pages;
-  this.read = false;
+  this.read = read;
 
   this.info = function() {
     if (this.read === false) {
@@ -26,9 +30,9 @@ function addBookToLibrary(book) {
 }
 
 // test books
-let hobbit = new Book('The Hobbit', 'J. R. R. Tolkien', 310);
-let lotr = new Book('The Lord of the Rings', 'J. R. R. Tolkien', 1216);
-let silmarillion = new Book('The Silmarillion', 'J. R. R. Tolkien', 365);
+let hobbit = new Book('The Hobbit', 'J. R. R. Tolkien', 310, false);
+let lotr = new Book('The Lord of the Rings', 'J. R. R. Tolkien', 1216, true);
+let silmarillion = new Book('The Silmarillion', 'J. R. R. Tolkien', 365, false);
 // test books
 
 // Go through each book in the library
@@ -53,5 +57,20 @@ for (book of myLibrary) {
                        <td>${pages}</td>
                        <td>${read}</td>`
   books.appendChild(bookrow);
-
 }
+
+// Open modal for adding books
+openModal.addEventListener('click', () => {
+  modal.showModal();
+})
+
+// Cancel adding book
+cancelBook.addEventListener('click', () => {
+  modal.close();
+})
+
+// Prevent default click
+function noClick(e) {
+  e.preventDefault();
+}
+

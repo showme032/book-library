@@ -44,6 +44,7 @@ body {
   flex-direction: column;
   align-items: center;
 }
+/* TABLE STYLING */
 .bookshelf {
   width: 52%;
   border-collapse: collapse;
@@ -69,7 +70,7 @@ tbody.books {
   width: 52%;
 }
 tbody.books tr {
-  border-bottom: solid 1px ;
+  border-bottom: solid 1px #454d66a5;
 }
 tbody.books tr:last-child {
   border: none;
@@ -94,12 +95,70 @@ tbody.books td:nth-child(4) {
   text-align: end;
 }
 
+/* ADDING BOOK MODAL */
+.book-modal {
+  width: 20rem;
+  border: none;
+  border-radius: 8px;
+  padding: 20px;
+}
+.book-modal::backdrop {
+  background-color: rgba(72, 72, 72, 0.2);
+  backdrop-filter: blur(8px);
+}
 form {
   display: flex;
   flex-direction: column;
+  color: var(--font-color-title);
+}
+form input {
+  font-size: 1.2rem;
+  margin-bottom: 12px;
+  padding: 5px;
+  border: 1px solid #6e6e6e;
+  border-radius: 5px;
+  color: var(--font-color-title);
+}
+form input#pages {
+  width: 18%;
+}
+form fieldset {
+  border: 1px solid #6e6e6e;
+  border-radius: 5px;
+  margin-bottom: 18px;
+  padding-bottom: 0;
+}
+form fieldset > legend {
+  color: #6e6e6e;
+  font-size: 1rem;
+  user-select: none;
+}
+form fieldset label{
+  user-select: none;
+}
+form fieldset input:nth-of-type(2){
+  margin-left: 1rem;
+}
+form div.form-buttons {
+  display: flex;
+  justify-content: space-around;
+}
+form button {
+  border: solid 1px #6e6e6e;
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 8px 12px;
+  font-weight: 600;
+  transition: 0.25s;
+}
+form button:hover {
+  transform: scale(102%);
+  transition: 0.25s;
+}
+form button:nth-child(1):hover {
+  background-color: #88D8B0cb;
+}
+form button:nth-child(2):hover {
+  background-color: #fd6e69cb;
 }
 
-dialog {
-  border: none;
-  border-radius: 8px;
-}
