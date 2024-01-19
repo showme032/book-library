@@ -14,14 +14,14 @@ let silmarillion = new Book('The Silmarillion', 'J. R. R. Tolkien', 365, true);
 let crinBlanc = new Book('Crin-Blanc', 'René Guillot', 158, true);
 // example books
 
-// Display all the books in library
+// Display library on load
 displayBooks();
 
 // Open modal for adding books
 openModal.addEventListener('click', () => {
   modal.showModal();
 
-  // Create object of input book
+  // Create object of input book in library
   form.addEventListener('submit', (e) => {
     // Prevent default click action
     e.preventDefault()
@@ -37,7 +37,6 @@ openModal.addEventListener('click', () => {
 
     newBook = new Book(newTitle, newAuthor, newPages, newRead);
     displayBooks();
-    console.log(myLibrary);
     modal.close();
   })
 
@@ -66,7 +65,7 @@ function Book(title, author, pages, read) {
   myLibrary.push(this)
 }
 
-// Go through each book in the library and display it on the page
+// Display books from the library on the page
 function displayBooks() {
   // Clear console, books element
   console.clear();
@@ -80,9 +79,9 @@ function displayBooks() {
     let author = book.author;
     let pages = book.pages;
     if (book.read === true) {
-      read = 'Already Read'
+      read = 'Read'
     } else {
-      read = 'Not read yet'
+      read = 'Not read'
     }
   
   
@@ -92,8 +91,16 @@ function displayBooks() {
     bookrow.innerHTML = `<td>${title}</td>
                          <td>${author}</td>
                          <td>${pages}</td>
-                         <td>${read}</td>`
+                         <td>${read}</td>
+                         <td><button id=${index} class="del-btn">Delete</button></td>`
                          
     books.appendChild(bookrow);
+
+    // Delete book when delete clicked
+    document.getElementById(index).addEventListener('click', (e) => {
+      let delId = e.currentTarget.getAttribute("id");
+      myLibrary.splice(delId, delId+1);
+      displayBooks();
+    })
   }
 }

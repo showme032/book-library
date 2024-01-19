@@ -31,11 +31,13 @@ body {
   border-radius: 5px;
   font-size: 1.5rem;
   font-weight: 500;
-  transition: 0.3s;
+  transition: 0.25s;
 }
 .navbar button:hover {
-  transform: scale(102%);
-  transition: 0.3s;
+  background-color: #292C3F;
+  color: #EFEEBA;
+  transform: scale(107%);
+  transition: 0.25s;
 }
 
 .content {
@@ -62,8 +64,17 @@ thead > tr {
 .bookshelf th:nth-child(1) {
   padding-left: 5px;
 }
+.bookshelf th:nth-child(2) {
+  min-width: 20%;
+}
+.bookshelf th:nth-child(3) {
+  width: 10%;
+}
 .bookshelf th:nth-child(4) {
-  padding-right: 5px;
+  width: 10%;
+}
+.bookshelf th:nth-child(5) {
+  width: 10%;
   text-align: end;
 }
 tbody.books {
@@ -76,23 +87,30 @@ tbody.books tr:last-child {
   border: none;
 }
 tbody.books td {
-  padding: 10px 0 5px 0;
+  padding: 8px 0 5px 0;
   font-size: 1.2rem;
   font-weight: 500;
   color: var(--font-color-content);
   /* border-bottom: solid 1px ; */
 }
 tbody.books td:nth-child(1) {
-  width: 50%;
   padding-left: 5px;
 }
-tbody.books td:nth-child(3) {
-  width: 10%;
-}
-tbody.books td:nth-child(4) {
-  width: 18%;
+tbody.books td:nth-child(5) {
   padding-right: 5px;
   text-align: end;
+}
+button.del-btn {
+  background-color: var(--font-color-content);
+  color: #F1FAEE;
+  border-radius: 5px;
+  padding: 5px 5px;
+  font-size: 1rem;
+  transition: 0.25s;
+}
+button.del-btn:hover {
+  background-color: #fd6e69cb;
+  transition: 0.25s;
 }
 
 /* ADDING BOOK MODAL */
