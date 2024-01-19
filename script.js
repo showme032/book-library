@@ -1,10 +1,51 @@
 const books = document.querySelector('.books');
 const openModal = document.querySelector('.add-book-button');
 const modal = document.querySelector('.book-modal');
+const form = document.querySelector('.add-book-form')
 const addBook = document.querySelector('#add-book');
 const cancelBook = document.querySelector('#cancel-book');
 
 const myLibrary = [];
+
+// example books
+let hobbit = new Book('The Hobbit', 'J. R. R. Tolkien', 310, false);
+let lotr = new Book('The Lord of the Rings', 'J. R. R. Tolkien', 1216, false);
+let silmarillion = new Book('The Silmarillion', 'J. R. R. Tolkien', 365, true);
+let crinBlanc = new Book('Crin-Blanc', 'René Guillot', 158, true);
+// example books
+
+// Display all the books in library
+displayBooks();
+
+// Open modal for adding books
+openModal.addEventListener('click', () => {
+  modal.showModal();
+
+  // Create object of input book
+  form.addEventListener('submit', (e) => {
+    // Prevent default click action
+    e.preventDefault()
+
+    let newTitle = document.getElementById('title').value;
+    let newAuthor = document.getElementById('author').value;
+    let newPages = document.getElementById('pages').value;
+    if (document.querySelector('input[name="read"]:checked').value === "true") {
+      newRead = true;
+    } else {
+      newRead = false;
+    }
+
+    newBook = new Book(newTitle, newAuthor, newPages, newRead);
+    displayBooks();
+    console.log(myLibrary);
+    modal.close();
+  })
+
+  // Cancel adding book
+  cancelBook.addEventListener('click', () => {
+    modal.close();
+  })
+})
 
 // Book object constructor
 function Book(title, author, pages, read) {
@@ -12,6 +53,7 @@ function Book(title, author, pages, read) {
   this.author = author;
   this.pages = pages;
   this.read = read;
+  this.index = myLibrary.length;
 
   this.info = function() {
     if (this.read === false) {
@@ -21,56 +63,37 @@ function Book(title, author, pages, read) {
     }
   }
 
-  addBookToLibrary(this);
+  myLibrary.push(this)
 }
 
-// Add a book to the library
-function addBookToLibrary(book) {
-  myLibrary.push(book)
-}
+// Go through each book in the library and display it on the page
+function displayBooks() {
+  // Clear console, books element
+  console.clear();
+  books.innerHTML = "";
 
-// test books
-let hobbit = new Book('The Hobbit', 'J. R. R. Tolkien', 310, false);
-let lotr = new Book('The Lord of the Rings', 'J. R. R. Tolkien', 1216, true);
-let silmarillion = new Book('The Silmarillion', 'J. R. R. Tolkien', 365, false);
-// test books
-
-// Go through each book in the library
-for (book of myLibrary) {
-  index = myLibrary.indexOf(book);
-  title = book.title;
-  author = book.author;
-  pages = book.pages;
-  if (book.read === true) {
-    read = 'Already Read'
-  } else {
-    read = 'Not read yet'
+  // on the page
+  for (book of myLibrary) {
+    console.log(book);
+    let index = book.index;
+    let title = book.title;
+    let author = book.author;
+    let pages = book.pages;
+    if (book.read === true) {
+      read = 'Already Read'
+    } else {
+      read = 'Not read yet'
+    }
+  
+  
+    // And add it to the table on the page
+    let bookrow = document.createElement('tr');
+    bookrow.className = `book-${index}`
+    bookrow.innerHTML = `<td>${title}</td>
+                         <td>${author}</td>
+                         <td>${pages}</td>
+                         <td>${read}</td>`
+                         
+    books.appendChild(bookrow);
   }
-
-  console.log(index, title, author, pages, read);
-
-  // And add it to the table on the page
-  let bookrow = document.createElement('tr');
-  bookrow.className = `book-${index}`
-  bookrow.innerHTML = `<td>${title}</td>
-                       <td>${author}</td>
-                       <td>${pages}</td>
-                       <td>${read}</td>`
-  books.appendChild(bookrow);
 }
-
-// Open modal for adding books
-openModal.addEventListener('click', () => {
-  modal.showModal();
-})
-
-// Cancel adding book
-cancelBook.addEventListener('click', () => {
-  modal.close();
-})
-
-// Prevent default click
-function noClick(e) {
-  e.preventDefault();
-}
-

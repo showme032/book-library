@@ -101,6 +101,7 @@ tbody.books td:nth-child(4) {
   border: none;
   border-radius: 8px;
   padding: 20px;
+  /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.439); */
 }
 .book-modal::backdrop {
   background-color: rgba(72, 72, 72, 0.2);

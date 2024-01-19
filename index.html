@@ -35,16 +35,16 @@
     <form method="dialog" class="add-book-form">
       <input id="title" type="text" name="title" placeholder="Book Title">
       <input id="author" type="text" name="author" placeholder="Book Author">
-      <input id="pages" type="text" inputmode="numeric" pattern="[0-9]*" name="pages" placeholder="Pages">
+      <input id="pages" type="text" inputmode="numeric" pattern="[0-9]*" title="enter a whole number" name="pages" placeholder="Pages">
       <fieldset>
         <legend>Have you read the book?</legend>
-        <input name="read" type="radio" id="read-yes" value="yes">
+        <input name="read" type="radio" id="read-yes" value=true>
         <label for="read-yes">Yes</label>
-        <input name="read" type="radio" id="read-no" value="no">
+        <input name="read" type="radio" id="read-no" value=false>
         <label for="read-no">No</label>
       </fieldset>
       <div class="form-buttons">
-        <button id="add-book">Add</button>
+        <button type="submit" id="add-book">Add</button>
         <button id="cancel-book">Cancel</button>
       </div>
     </form>
