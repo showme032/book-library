@@ -37,6 +37,7 @@ openModal.addEventListener('click', () => {
 
     newBook = new Book(newTitle, newAuthor, newPages, newRead);
     displayBooks();
+    form.reset();
     modal.close();
   })
 
@@ -45,6 +46,16 @@ openModal.addEventListener('click', () => {
     modal.close();
   })
 })
+
+// Delete book when requested
+// document.addEventListener('click', (e) => {
+//   if (e.target.matches('.del-btn')) {
+//     removeIndex = e.target.id;
+//     myLibrary.splice(removeIndex, 1);
+//     console.log(myLibrary);
+
+//   }
+// })
 
 // Book object constructor
 function Book(title, author, pages, read) {
@@ -72,7 +83,7 @@ function displayBooks() {
   books.innerHTML = "";
 
   // on the page
-  for (book of myLibrary) {
+  for (let book of myLibrary) {
     console.log(book);
     let index = book.index;
     let title = book.title;
@@ -87,6 +98,7 @@ function displayBooks() {
   
     // And add it to the table on the page
     let bookrow = document.createElement('tr');
+    // bookrow.setAttribute('id', index);
     bookrow.className = `book-${index}`
     bookrow.innerHTML = `<td>${title}</td>
                          <td>${author}</td>
@@ -96,11 +108,12 @@ function displayBooks() {
                          
     books.appendChild(bookrow);
 
+    // !!!WRONG!!! DOESN'T WORK AS INTENDED
     // Delete book when delete clicked
-    document.getElementById(index).addEventListener('click', (e) => {
-      let delId = e.currentTarget.getAttribute("id");
-      myLibrary.splice(delId, delId+1);
-      displayBooks();
+    let e = document.getElementById(index)
+    e.addEventListener('click', () => {
+      myLibrary.splice(e.id, 1);
+      console.log(myLibrary);
     })
   }
 }

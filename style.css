@@ -60,6 +60,7 @@ thead > tr {
   font-size: 1.5rem;
   font-weight: 600;
   text-align: start;
+  user-select: none;
 }
 .bookshelf th:nth-child(1) {
   padding-left: 5px;
@@ -76,6 +77,7 @@ thead > tr {
 .bookshelf th:nth-child(5) {
   width: 10%;
   text-align: end;
+  padding-right: 5px;
 }
 tbody.books {
   width: 52%;
