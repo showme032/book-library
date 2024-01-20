@@ -20,6 +20,7 @@ displayBooks();
 // Open modal for adding books
 openModal.addEventListener('click', () => {
   modal.showModal();
+  form.reset();
 
   // Create object of input book in library
   form.addEventListener('submit', (e) => {
@@ -37,7 +38,6 @@ openModal.addEventListener('click', () => {
 
     newBook = new Book(newTitle, newAuthor, newPages, newRead);
     displayBooks();
-    form.reset();
     modal.close();
   })
 
@@ -65,6 +65,7 @@ document.addEventListener('click', (e) => {
       updateBook.read = true;
       e.target.innerText = 'Read'
     }
+    displayBooks();
   }
 })
 
@@ -106,12 +107,17 @@ function displayBooks() {
   
     // And add it to the table on the page
     let bookrow = document.createElement('tr');
-    // bookrow.setAttribute('id', index);
+    let readClass = ''
+    if (read === 'Read') {
+      readClass = 'read';
+    } else {
+      readClass = 'not-read';
+    }
     // bookrow.className = `book-${index}`
     bookrow.innerHTML = `<td>${title}</td>
                          <td>${author}</td>
                          <td>${pages}</td>
-                         <td><button name=${index} class="rd-btn">${read}</button></td>
+                         <td><button name=${index} class="rd-btn ${readClass}">${read}</button></td>
                          <td><button name=${index} class="del-btn">Delete</button></td>`
                          
     books.appendChild(bookrow);
