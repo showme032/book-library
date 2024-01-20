@@ -48,13 +48,13 @@ openModal.addEventListener('click', () => {
 })
 
 // Delete book when requested
-// document.addEventListener('click', (e) => {
-//   if (e.target.matches('.del-btn')) {
-//     removeIndex = e.target.id;
-//     myLibrary.splice(removeIndex, 1);
-//     displayBooks()
-//   }
-// })
+document.addEventListener('click', (e) => {
+  if (e.target.matches('.del-btn')) {
+    removeIndex = e.target.id;
+    myLibrary.splice(removeIndex, 1);
+    displayBooks()
+  } 
+})
 
 // Book object constructor
 function Book(title, author, pages, read) {
@@ -99,16 +99,16 @@ function displayBooks() {
     bookrow.innerHTML = `<td>${title}</td>
                          <td>${author}</td>
                          <td>${pages}</td>
-                         <td>${read}</td>
+                         <td><button>${read}</button></td>
                          <td><button id=${index} class="del-btn">Delete</button></td>`
                          
     books.appendChild(bookrow);
 
     // Delete book when requested
-    let e = document.getElementById(index)
-    e.addEventListener('click', () => {
-      myLibrary.splice(e.id, 1);
-      displayBooks();
-    })
+    // let e = document.getElementById(index)
+    // e.addEventListener('click', () => {
+    //   myLibrary.splice(e.id, 1);
+    //   displayBooks();
+    // })
   }
 }
