@@ -104,9 +104,9 @@ tbody.books td:nth-child(5) {
   text-align: end;
 }
 button.rd-btn {
-  border: 2px solid var(--font-color-content);
+  /* border: 2px solid var(--font-color-content); */
   border-radius: 5px;
-  padding: 3px 5px;
+  padding: 5px 7apx;
   font-size: 1rem;
   transition: var(--transition-time);
 }
