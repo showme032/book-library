@@ -50,10 +50,22 @@ openModal.addEventListener('click', () => {
 // Delete book when requested
 document.addEventListener('click', (e) => {
   if (e.target.matches('.del-btn')) {
-    removeIndex = e.target.id;
+    // console.log(e);
+    removeIndex = e.target.name;
     myLibrary.splice(removeIndex, 1);
     displayBooks()
-  } 
+  } else if (e.target.matches('.rd-btn')) {
+    updateBook = myLibrary[e.target.name];
+    console.log(e);
+    // mby fix this up
+    if (updateBook.read === true) {
+      updateBook.read = false;
+      e.target.innerText = 'Not read'
+    } else {
+      updateBook.read = true;
+      e.target.innerText = 'Read'
+    }
+  }
 })
 
 // Book object constructor
@@ -99,8 +111,8 @@ function displayBooks() {
     bookrow.innerHTML = `<td>${title}</td>
                          <td>${author}</td>
                          <td>${pages}</td>
-                         <td><button>${read}</button></td>
-                         <td><button id=${index} class="del-btn">Delete</button></td>`
+                         <td><button name=${index} class="rd-btn">${read}</button></td>
+                         <td><button name=${index} class="del-btn">Delete</button></td>`
                          
     books.appendChild(bookrow);
 
