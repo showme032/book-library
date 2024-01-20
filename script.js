@@ -14,7 +14,7 @@ let silmarillion = new Book('The Silmarillion', 'J. R. R. Tolkien', 365, true);
 let crinBlanc = new Book('Crin-Blanc', 'René Guillot', 158, true);
 // example books
 
-// Display library on load
+// Display library on page load
 displayBooks();
 
 // Open modal for adding books
@@ -52,8 +52,7 @@ openModal.addEventListener('click', () => {
 //   if (e.target.matches('.del-btn')) {
 //     removeIndex = e.target.id;
 //     myLibrary.splice(removeIndex, 1);
-//     console.log(myLibrary);
-
+//     displayBooks()
 //   }
 // })
 
@@ -63,7 +62,6 @@ function Book(title, author, pages, read) {
   this.author = author;
   this.pages = pages;
   this.read = read;
-  this.index = myLibrary.length;
 
   this.info = function() {
     if (this.read === false) {
@@ -76,16 +74,14 @@ function Book(title, author, pages, read) {
   myLibrary.push(this)
 }
 
-// Display books from the library on the page
+// Display all the books from the library
 function displayBooks() {
-  // Clear console, books element
-  console.clear();
+  // Clear books element
   books.innerHTML = "";
 
   // on the page
-  for (let book of myLibrary) {
-    console.log(book);
-    let index = book.index;
+  for (let index = 0; index < myLibrary.length; index++) {
+    book = myLibrary[index];
     let title = book.title;
     let author = book.author;
     let pages = book.pages;
@@ -99,7 +95,7 @@ function displayBooks() {
     // And add it to the table on the page
     let bookrow = document.createElement('tr');
     // bookrow.setAttribute('id', index);
-    bookrow.className = `book-${index}`
+    // bookrow.className = `book-${index}`
     bookrow.innerHTML = `<td>${title}</td>
                          <td>${author}</td>
                          <td>${pages}</td>
@@ -108,12 +104,11 @@ function displayBooks() {
                          
     books.appendChild(bookrow);
 
-    // !!!WRONG!!! DOESN'T WORK AS INTENDED
-    // Delete book when delete clicked
+    // Delete book when requested
     let e = document.getElementById(index)
     e.addEventListener('click', () => {
       myLibrary.splice(e.id, 1);
-      console.log(myLibrary);
+      displayBooks();
     })
   }
 }
