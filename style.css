@@ -106,7 +106,7 @@ tbody.books td:nth-child(5) {
 button.rd-btn {
   /* border: 2px solid var(--font-color-content); */
   border-radius: 5px;
-  padding: 5px 7apx;
+  padding: 5px 7px;
   font-size: 1rem;
   transition: var(--transition-time);
 }
