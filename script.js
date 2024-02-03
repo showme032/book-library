@@ -7,11 +7,58 @@ const cancelBook = document.querySelector('#cancel-book');
 
 const myLibrary = [];
 
+// Book class declaration
+class Book {
+  constructor(title, author, pages, read) {
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.read = read;
+  }
+
+  // Setters
+  set title(title) {
+    this._title = title;
+  }
+  set author(author) {
+    this._author = author;
+  }
+  set pages(pages) {
+    this._pages = pages;
+  }
+  set read(read) {
+    this._read = read;
+  }
+
+  // Getters
+  get title() {
+    return this._title;
+  }
+  get author() {
+    return this._author;
+  }
+  get pages() {
+    return this._pages;
+  }
+  get read() {
+    return this._read;
+  }
+
+  info = function() {
+    if (this.read === false) {
+      return `${this.title} by ${this.author}, ${this.pages} pages, not read yet`;
+    } else {
+      return `${this.title} by ${this.author}, ${this.pages} pages, already read`;
+    }
+  }
+}
+
 // example books
 let hobbit = new Book('The Hobbit', 'J. R. R. Tolkien', 310, false);
 let lotr = new Book('The Lord of the Rings', 'J. R. R. Tolkien', 1216, false);
 let silmarillion = new Book('The Silmarillion', 'J. R. R. Tolkien', 365, true);
 let crinBlanc = new Book('Crin-Blanc', 'René Guillot', 158, true);
+myLibrary.push(hobbit, lotr, silmarillion, crinBlanc);
 // example books
 
 // Display library on page load
@@ -37,6 +84,7 @@ openModal.addEventListener('click', () => {
     }
 
     newBook = new Book(newTitle, newAuthor, newPages, newRead);
+    myLibrary.push(newBook);
     displayBooks();
     modal.close();
   })
@@ -68,24 +116,6 @@ document.addEventListener('click', (e) => {
     displayBooks();
   }
 })
-
-// Book object constructor
-function Book(title, author, pages, read) {
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.read = read;
-
-  this.info = function() {
-    if (this.read === false) {
-      return `${this.title} by ${this.author}, ${this.pages} pages, not read yet`;
-    } else {
-      return `${this.title} by ${this.author}, ${this.pages} pages, already read`;
-    }
-  }
-
-  myLibrary.push(this)
-}
 
 // Display all the books from the library
 function displayBooks() {
