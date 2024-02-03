@@ -104,7 +104,7 @@ document.addEventListener('click', (e) => {
     displayBooks()
   } else if (e.target.matches('.rd-btn')) {
     updateBook = myLibrary[e.target.name];
-    console.log(e);
+    // console.log(e);
     // mby fix this up
     if (updateBook.read === true) {
       updateBook.read = false;

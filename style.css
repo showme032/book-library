@@ -1,6 +1,7 @@
 :root {
   --transition-time: 0.25s;
-  --font-color-text: #282524;
+  --font-color-text: #282524ee;
+  --font-color-text-transp: #282524ee;
   --background-color: #FEF7EE;
   --background-color-darker: #FFF1DC;
 }
@@ -30,13 +31,13 @@ body {
   height: 1.5em;
   border: solid 2px var(--font-color-text);
   margin-right: 5px;
-  border-radius: 5px;
+  border-radius: 8px;
   font-size: 1.5rem;
   font-weight: 500;
   transition: var(--transition-time);
 }
 .navbar button:hover {
-  background-color: var(--font-color-text);
+  background-color: var(--font-color-text-transp);
   color: var(--background-color-darker);
   transform: scale(107%);
   transition: var(--transition-time);
@@ -106,7 +107,7 @@ tbody.books td:nth-child(5) {
 }
 button.rd-btn {
   /* border: 2px solid var(--font-color-text); */
-  border-radius: 5px;
+  border-radius: 8px;
   padding: 5px 7px;
   font-size: 1rem;
   transition: var(--transition-time);
@@ -132,15 +133,15 @@ button.read {
   transition: var(--transition-time);
 }
 button.del-btn {
-  box-sizing: border-box;
-  border: 2px solid var(--font-color-text);
-  border-radius: 5px;
-  color: var(--font-color-text);
-  padding: 3px 5px;
+  border-radius: 8px;
+  color: var(--background-color);
+  background-color: var(--font-color-text-transp);
+  padding: 5px 7px;
   font-size: 1rem;
 }
 button.del-btn:hover {
-  background-color: #fd6e6995;
+  background-color: #fd6e6980;
+  color: var(--font-color-text);
 }
 
 /* ADDING BOOK MODAL */
@@ -165,7 +166,7 @@ form input {
   margin-bottom: 12px;
   padding: 5px;
   border: 1px solid #6e6e6e;
-  border-radius: 5px;
+  border-radius: 8px;
   color: var(--font-color-text);
 }
 form input#pages {
@@ -183,7 +184,7 @@ form input:placeholder-shown {
 }
 form fieldset {
   border: 1px solid #6e6e6e;
-  border-radius: 5px;
+  border-radius: 8px;
   margin-bottom: 18px;
   padding-bottom: 0;
 }
@@ -205,7 +206,7 @@ form div.form-buttons {
 form button {
   border: solid 1px #6e6e6e;
   background-color: #fff;
-  border-radius: 5px;
+  border-radius: 8px;
   padding: 8px 12px;
   font-weight: 600;
   transition: 0.25s;
