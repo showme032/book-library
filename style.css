@@ -1,13 +1,14 @@
 :root {
-  --font-color-title: #363c50;
-  --font-color-content: #454D66;
   --transition-time: 0.25s;
+  --font-color-text: #282524;
+  --background-color: #FEF7EE;
+  --background-color-darker: #FFF1DC;
 }
 * {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 body {
-  background-color: #F1FAEE;
+  background-color: var(--background-color);
 }
 
 .navbar {
@@ -15,8 +16,8 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 10px 24% 10px 24%;
-  background-color: #EFEEBA;
-  color: #292C3F;
+  background-color: var(--background-color-darker);
+  color: var(--font-color-text);
   font-size: 2rem;
   font-weight: 500;
 }
@@ -27,7 +28,7 @@ body {
 .navbar button {
   /* width: 1.5em; */
   height: 1.5em;
-  border: solid 2px #292C3F;
+  border: solid 2px var(--font-color-text);
   margin-right: 5px;
   border-radius: 5px;
   font-size: 1.5rem;
@@ -35,8 +36,8 @@ body {
   transition: var(--transition-time);
 }
 .navbar button:hover {
-  background-color: #292C3F;
-  color: #EFEEBA;
+  background-color: var(--font-color-text);
+  color: var(--background-color-darker);
   transform: scale(107%);
   transition: var(--transition-time);
 }
@@ -53,11 +54,11 @@ body {
   border-collapse: collapse;
 }
 thead > tr {
-  border-bottom: solid 2px var(--font-color-title);
+  border-bottom: solid 2px var(--font-color-text);
 }
 .bookshelf th {
   padding: 0 0 5px 0;
-  color: var(--font-color-title);
+  color: var(--font-color-text);
   font-size: 1.5rem;
   font-weight: 600;
   text-align: start;
@@ -93,7 +94,7 @@ tbody.books td {
   padding: 8px 0 5px 0;
   font-size: 1.2rem;
   font-weight: 500;
-  color: var(--font-color-content);
+  color: var(--font-color-text);
   /* border-bottom: solid 1px ; */
 }
 tbody.books td:nth-child(1) {
@@ -104,18 +105,18 @@ tbody.books td:nth-child(5) {
   text-align: end;
 }
 button.rd-btn {
-  /* border: 2px solid var(--font-color-content); */
+  /* border: 2px solid var(--font-color-text); */
   border-radius: 5px;
   padding: 5px 7px;
   font-size: 1rem;
   transition: var(--transition-time);
 }
 button.rd-btn:hover {
-  background-color: var(--font-color-content);
+  background-color: var(--font-color-text);
   transition: var(--transition-time);
 }
 button.not-read:hover {
-  color: #88d8b0;
+  color: var(--background-color);
   transition: var(--transition-time);
 }
 button.not-read {
@@ -123,7 +124,7 @@ button.not-read {
   transition: var(--transition-time);
 }
 button.read:hover {
-  color: #ffedaf;
+  color: var(--background-color);
   transition: var(--transition-time);
 }
 button.read {
@@ -132,9 +133,9 @@ button.read {
 }
 button.del-btn {
   box-sizing: border-box;
-  border: 2px solid var(--font-color-content);
+  border: 2px solid var(--font-color-text);
   border-radius: 5px;
-  color: var(--font-color-content);
+  color: var(--font-color-text);
   padding: 3px 5px;
   font-size: 1rem;
 }
@@ -157,7 +158,7 @@ button.del-btn:hover {
 form {
   display: flex;
   flex-direction: column;
-  color: var(--font-color-title);
+  color: var(--font-color-text);
 }
 form input {
   font-size: 1.2rem;
@@ -165,7 +166,7 @@ form input {
   padding: 5px;
   border: 1px solid #6e6e6e;
   border-radius: 5px;
-  color: var(--font-color-title);
+  color: var(--font-color-text);
 }
 form input#pages {
   width: 18%;
