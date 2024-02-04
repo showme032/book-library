@@ -69,16 +69,19 @@ thead > tr {
   padding-left: 5px;
 }
 .bookshelf th:nth-child(2) {
-  min-width: 20%;
+  min-width: 15%;
+  /* text-align: end; */
 }
 .bookshelf th:nth-child(3) {
-  width: 10%;
+  width: 11%;
+  text-align: end;
 }
 .bookshelf th:nth-child(4) {
-  width: 10%;
+  width: 11%;
+  text-align: end;
 }
 .bookshelf th:nth-child(5) {
-  width: 10%;
+  width: 11%;
   text-align: end;
   padding-right: 5px;
 }
@@ -100,6 +103,12 @@ tbody.books td {
 }
 tbody.books td:nth-child(1) {
   padding-left: 5px;
+}
+tbody.books td:nth-child(3) {
+  text-align: end;
+}
+tbody.books td:nth-child(4) {
+  text-align: end;
 }
 tbody.books td:nth-child(5) {
   padding-right: 5px;
@@ -150,6 +159,7 @@ button.del-btn:hover {
   border: none;
   border-radius: 8px;
   padding: 20px;
+  background-color: var(--background-color);
   /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.439); */
 }
 .book-modal::backdrop {
@@ -165,8 +175,9 @@ form input {
   font-size: 1.2rem;
   margin-bottom: 12px;
   padding: 5px;
-  border: 1px solid #6e6e6e;
+  border: 1px solid var(--font-color-text-transp);
   border-radius: 8px;
+  /* background-color: var(--background-color); */
   color: var(--font-color-text);
 }
 form input#pages {
@@ -179,17 +190,17 @@ form input:invalid {
   border-color: #fd6e69;
 }
 form input:placeholder-shown {
-  border-color: #6e6e6e;
+  border-color: var(--font-color-text-transp);
   text-align: left;
 }
 form fieldset {
-  border: 1px solid #6e6e6e;
+  border: 1px solid var(--font-color-text-transp);
   border-radius: 8px;
   margin-bottom: 18px;
   padding-bottom: 0;
 }
 form fieldset > legend {
-  color: #6e6e6e;
+  color: var(--font-color-text-transp);
   font-size: 1rem;
   user-select: none;
 }
@@ -204,16 +215,16 @@ form div.form-buttons {
   justify-content: space-around;
 }
 form button {
-  border: solid 1px #6e6e6e;
+  border: solid 1px var(--font-color-text-transp);
   background-color: #fff;
   border-radius: 8px;
   padding: 8px 12px;
   font-weight: 600;
-  transition: 0.25s;
+  transition: var(--transition-time);
 }
 form button:hover {
   transform: scale(102%);
-  transition: 0.25s;
+  transition: var(--transition-time);
 }
 form button:nth-child(1):hover {
   background-color: #88d8b07e;
