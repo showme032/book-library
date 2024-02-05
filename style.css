@@ -3,10 +3,13 @@
   --font-color-text: #282524ee;
   --font-color-text-transp: #282524ee;
   --background-color: #FEF7EE;
+  --background-color-lighter: #fef7eece;
   --background-color-darker: #FFF1DC;
+  --accent-color: #E5AEF7;
 }
 * {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  box-sizing: border-box;
 }
 body {
   background-color: var(--background-color);
@@ -39,8 +42,10 @@ body {
 .navbar button:hover {
   background-color: var(--font-color-text-transp);
   color: var(--background-color-darker);
-  transform: scale(107%);
+  /* color: var(--accent-color); */
+  transform: scale(105%);
   transition: var(--transition-time);
+  /* box-shadow: 3px 3px var(--accent-color); */
 }
 
 .content {
@@ -102,6 +107,7 @@ tbody.books td {
   /* border-bottom: solid 1px ; */
 }
 tbody.books td:nth-child(1) {
+  border-radius: 8px;
   padding-left: 5px;
 }
 tbody.books td:nth-child(3) {
@@ -119,27 +125,20 @@ button.rd-btn {
   border-radius: 8px;
   padding: 5px 7px;
   font-size: 1rem;
-  transition: var(--transition-time);
+  outline: transparent;
 }
-button.rd-btn:hover {
-  background-color: var(--font-color-text);
-  transition: var(--transition-time);
-}
-button.not-read:hover {
+/* button.rd-btn:hover {
   color: var(--background-color);
-  transition: var(--transition-time);
-}
+  background-color: var(--font-color-text);
+} */
 button.not-read {
   background-color: #ffedafcb;
-  transition: var(--transition-time);
-}
-button.read:hover {
-  color: var(--background-color);
-  transition: var(--transition-time);
 }
 button.read {
   background-color: #88d8b07e;
-  transition: var(--transition-time);
+}
+button.rd-btn:hover {
+  outline: 1px solid var(--font-color-text);
 }
 button.del-btn {
   border-radius: 8px;
@@ -151,6 +150,7 @@ button.del-btn {
 button.del-btn:hover {
   background-color: #fd6e6980;
   color: var(--font-color-text);
+  outline: 1px solid var(--font-color-text);
 }
 
 /* ADDING BOOK MODAL */
@@ -181,7 +181,7 @@ form input {
   color: var(--font-color-text);
 }
 form input#pages {
-  width: 18%;
+  width: 25%;
 }
 form input:valid {
   border-color: #88d8b0;
@@ -233,3 +233,18 @@ form button:nth-child(2):hover {
   background-color: #fd6e6985;
 }
 
+footer {
+  height: 24px;
+  width: 100%;
+  font-size: 1rem;
+  position: absolute;
+  bottom: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.gh-logo {
+  height: 1rem;
+  padding-left: 0.66rem;
+}
