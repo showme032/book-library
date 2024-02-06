@@ -2,13 +2,24 @@
   --transition-time: 0.25s;
   --font-color-text: #282524ee;
   --font-color-text-transp: #282524ee;
-  --background-color: #FEF7EE;
+  --background-color: #fef7ee;
   --background-color-lighter: #fef7eece;
-  --background-color-darker: #FFF1DC;
-  --accent-color: #E5AEF7;
+  --background-color-darker: #fff1dc;
+  --accent-color: #e5aef7;
 }
 * {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    "Open Sans",
+    "Helvetica Neue",
+    sans-serif;
   box-sizing: border-box;
 }
 body {
@@ -50,7 +61,7 @@ body {
 
 .content {
   padding-top: 2rem;
-  display: flex; 
+  display: flex;
   flex-direction: column;
   align-items: center;
 }
@@ -74,12 +85,12 @@ thead > tr {
   padding-left: 5px;
 }
 .bookshelf th:nth-child(2) {
-  min-width: 15%;
+  min-width: 20%;
   /* text-align: end; */
 }
 .bookshelf th:nth-child(3) {
-  width: 11%;
-  text-align: end;
+  width: 7%;
+  /* text-align: end; */
 }
 .bookshelf th:nth-child(4) {
   width: 11%;
@@ -100,19 +111,17 @@ tbody.books tr:last-child {
   border: none;
 }
 tbody.books td {
-  padding: 8px 0 5px 0;
+  padding: 7px 0 7px 0;
   font-size: 1.2rem;
   font-weight: 500;
   color: var(--font-color-text);
-  /* border-bottom: solid 1px ; */
 }
 tbody.books td:nth-child(1) {
-  border-radius: 8px;
   padding-left: 5px;
 }
-tbody.books td:nth-child(3) {
+/* tbody.books td:nth-child(3) {
   text-align: end;
-}
+} */
 tbody.books td:nth-child(4) {
   text-align: end;
 }
@@ -204,10 +213,10 @@ form fieldset > legend {
   font-size: 1rem;
   user-select: none;
 }
-form fieldset label{
+form fieldset label {
   user-select: none;
 }
-form fieldset input:nth-of-type(2){
+form fieldset input:nth-of-type(2) {
   margin-left: 1rem;
 }
 form div.form-buttons {
