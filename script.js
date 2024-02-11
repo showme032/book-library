@@ -71,12 +71,12 @@ openModal.addEventListener("click", () => {
 
   // Create object of input book in library
   form.addEventListener("submit", (e) => {
-    // Prevent default click action
     e.preventDefault();
 
     let newTitle = document.getElementById("title").value;
     let newAuthor = document.getElementById("author").value;
     let newPages = document.getElementById("pages").value;
+    let newRead;
     if (document.querySelector('input[name="read"]:checked').value === "true") {
       newRead = true;
     } else {
@@ -95,17 +95,14 @@ openModal.addEventListener("click", () => {
   });
 });
 
-// Delete book when requested
+// Delete book or change read status, per request
 document.addEventListener("click", (e) => {
   if (e.target.matches(".del-btn")) {
-    // console.log(e);
     removeIndex = e.target.name;
     myLibrary.splice(removeIndex, 1);
     displayBooks();
   } else if (e.target.matches(".rd-btn")) {
     updateBook = myLibrary[e.target.name];
-    // console.log(e);
-    // mby fix this up
     if (updateBook.read === true) {
       updateBook.read = false;
       e.target.innerText = "Not read";
@@ -119,22 +116,23 @@ document.addEventListener("click", (e) => {
 
 // Display all the books from the library
 function displayBooks() {
-  // Clear books element
+  // Clear previous display
   books.innerHTML = "";
 
-  // on the page
+  // Loop through library, adding books to the page
   for (let index = 0; index < myLibrary.length; index++) {
-    book = myLibrary[index];
+    let book = myLibrary[index];
     let title = book.title;
     let author = book.author;
     let pages = book.pages;
+    let read;
     if (book.read === true) {
       read = "Read";
     } else {
       read = "Not read";
     }
 
-    // And add it to the table on the page
+    // Create page element
     let bookrow = document.createElement("tr");
     let readClass = "";
     if (read === "Read") {
@@ -142,7 +140,8 @@ function displayBooks() {
     } else {
       readClass = "not-read";
     }
-    // bookrow.className = `book-${index}`
+
+    // Set it's values
     bookrow.innerHTML = `<td>${title}</td>
                          <td>${author}</td>
                          <td>${pages}</td>
@@ -150,12 +149,5 @@ function displayBooks() {
                          <td><button name=${index} class="del-btn">Delete</button></td>`;
 
     books.appendChild(bookrow);
-
-    // Delete book when requested
-    // let e = document.getElementById(index)
-    // e.addEventListener('click', () => {
-    //   myLibrary.splice(e.id, 1);
-    //   displayBooks();
-    // })
   }
 }
